@@ -2,7 +2,9 @@ import sys
 from random import randint as r
 
 def lasname(lnam):
-    """This function removes any special character from the last name given."""
+    """
+    This function removes any special character from the last name given.
+    """
     
     # list of special characters
     special=["'","-","@","!","#","$","&","*","?","_"]

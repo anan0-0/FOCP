@@ -9,6 +9,7 @@ print("Park Run Timer")
 print("~~~~~~~~~~~~~~")
 print("\nLet's go!\n")
 
+#initializing data and time lists
 data=[]
 time=[]
 
@@ -16,10 +17,14 @@ time=[]
 while True:
     try:
         d=input("> ")
-        if d.upper()!="END":
-            int(d.split("::")[0])
-            time.append(int(d.split("::")[1]))
-            data.append(d)
+        d1=d.split("::")
+        if d1[0].upper()!="END":
+            #int(d.split("::")[0])
+            if ((d1[0])not in data) and int(d1[1]) >0 and int(d1[0])>0: 
+                time.append(int(d1[1]))
+                data.append(d1[0])
+            else:
+                print("Error in data stream. Ignoring. Carry on.")        
         else:
             break   
     except: 
