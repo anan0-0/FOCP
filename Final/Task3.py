@@ -24,6 +24,7 @@ try:
     # Try to open the file passed as command line argument
     f=open(sys.argv[1], "r")
     f1=open("Emails.txt","w")
+    #initializing lists and assigning data to email variable
     lname=[]
     fname=[] 
     id=[] 

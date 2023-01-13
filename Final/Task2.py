@@ -1,6 +1,6 @@
 def minute(a):
-    """ This function converts time given to minutes and seconds"""
-    
+    """ This function converts time given to minutes and seconds.
+    """
     x=a//60
     y=a-(x*60)
     return x,y
@@ -18,9 +18,10 @@ while True:
     try:
         d=input("> ")
         d1=d.split("::")
+        # break the loop when user enters "END"
         if d1[0].upper()!="END":
-            #int(d.split("::")[0])
             if ((d1[0])not in data) and int(d1[1]) >0 and int(d1[0])>0: 
+                #if same runner number is written or the time is in negative 
                 time.append(int(d1[1]))
                 data.append(d1[0])
             else:
@@ -32,15 +33,17 @@ while True:
         print("Error in data stream. Ignoring. Carry on.")       
 
 try:
+    #calculating average
     avg=sum(time)/len(time)
-    a=(avg//60)
+    m2,s2=minute(avg)
     m,s=minute(max(time))
     m1,s1=minute(min(time))
     pos=time.index(min(time))
     btr=data[pos].split("::")[0]
     
+    #printing the results
     print("Total Runners: ",len(data))
-    print(f"Average Time: {int(a)} minute {int(avg-(a*60))} seconds" if a==1 else f"Average Time: {int(a)} minutes {int(avg-(a*60))} seconds")
+    print(f"Average Time: {int(m2)} minute {int(s2)} seconds" if m2==1 else f"Average Time: {int(m2)} minutes {int(s2)} seconds")
     print(f"Fastest Time: {int(m1)} minute {int(s1)} seconds" if m1==1 else f"Fastest Time: {int(m1)} minutes {int(s1)} seconds")
     print(f"Slowest Time: {int(m)} minute {int(s)} seconds" if m==1 else f"Slowest Time: {int(m)} minutes {int(s)} seconds")
     print(f"\n\n Best Time Here: Runner #{btr}")

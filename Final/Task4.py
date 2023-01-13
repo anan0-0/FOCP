@@ -3,8 +3,8 @@ from sys import argv
 
 # Function to decrypt the ciphertext using a shift value
 def decrypt(ciphertext, shift):
-    """ This function decrypts the given text using the shift key passed as an argument"""
-    
+    """ This function decrypts the given text using the shift key passed as an argument.
+    """
     plaintext = ""
     for c in ciphertext: 
         if c.isalpha():
@@ -17,10 +17,10 @@ def decrypt(ciphertext, shift):
         plaintext += c
     return plaintext
 
-# Function to check if the decrypted text conatins English words
+# Function to check if the decrypted text contains English words
 def is_english(text):
-    """ This function checks weather the decrpyted message contains english words"""
-        
+    """ This function checks weather the decrpyted message contains english words.
+    """    
     english_words = ["hello","the", "be", "of", "and", "a", "in", "that", "have", "I", "it", "for", "not", "on", "with", "he", "as", "you", "at","world","this", "if", "about", "but", "his","from","they","we","say","her","she","an","will","my","one","all","would","there","their","what","so","up","out","who","get","which","go"]
     for word in english_words:
         if re.search(r"\b" + word + r"\b", text):
@@ -39,7 +39,7 @@ try:
         if is_english(decrypted_text):
             result=decrypted_text
             j=shift
-    print(result,shift)
+    print(result,j)
 
 except IndexError:
     # Handle the case where no file name was passed as an argument
